@@ -110,10 +110,6 @@ class Zapato implements TipoPrenda {
   List materialesPosibles;
   Material material;
   
-  Zatapto(Material)
-    validateNonNull(material)
-    this.material = material
-  
   validateMaterial(Material)
     return materialesPosibles.contains(material)
 }
@@ -121,12 +117,7 @@ class Zapato implements TipoPrenda {
 class Camisa implements TipoPrenda {
   Categoria categoria = Categoria.SUPERIOR;
   List materialesPosibles;
-  Material material;
-  
-  Camisa(Material)
-    validateNonNull(material)
-    this.material = material
-  
+ 
   validateMaterial(Material)
     return materialesPosibles.contains(material)
 }
@@ -136,17 +127,52 @@ class Pantalon implements TipoPrenda {
   List materialesPosibles;
   Material material;
   
-  Camisa(Material)
-    validateNonNull(material)
-    this.material = material
-  
   validateMaterial(Material)
     return materialesPosibles.contains(material)
 }
 ```
 
-Como usuario QueMePongo, quiero poder recibir sugerencias de uniformes armados.
-Como usuario QueMePongo, quiero que un uniforme siempre conste de una prenda superior, una inferior y un calzado
-Como administrador de QueMePongo, quiero poder configurar diferentes uniformes para distintas instituciones (Ej: para el colegio San Juan debe ser una chomba verde de piqué, un pantalón de acetato gris y zapatillas blancas, mientras que para el Instituto Johnson siempre será una camisa blanca, pantalón de vestir negro y zapatos negros) 
+Como usuario QueMePongo, quiero poder recibir sugerencias de uniformes armados. [1]
 
+Como usuario QueMePongo, quiero que un uniforme siempre conste de una prenda superior, una inferior y un calzado [2]
 
+Como administrador de QueMePongo, quiero poder configurar diferentes uniformes para distintas instituciones [3]
+(Ej: para el colegio San Juan debe ser una chomba verde de piqué, un pantalón de acetato gris y zapatillas blancas, mientras que para el Instituto Johnson siempre será una camisa blanca, pantalón de vestir negro y zapatos negros) 
+
+```java
+class Uniforme [1] {
+  Prenda superior [2]
+  Prenda inferior [2]
+  Prenda calzado [2]
+}
+
+FarbicaDeUniforme{ [3]
+  fabricar() {
+    return new Uniforme(fabricarParteSuperior(), fabricarParteInferior(), fabricarCalzado())
+  }
+  abstract method fabricarParteSuperior()
+  abstract method fabricarParteInferior()
+  abstract method fabricarCalzado()
+
+FabricaDeUniformeSanJuan extendss FarbicaDeUniforme {
+  fabricarParteSuperior()
+    return new PrendaBorrador(Chomba).deMaterial(Material.PIQUE).conColor(new Color()).....
+  
+  fabricarParteInferior()
+    return new PrendaBorrador(Pantalon).deMaterial(Material.ACETATO).conColor(new Color()).....
+    
+  fabricarCalzado()
+    return new PrendaBorrador(Zapatillas).deMaterial(Material.CUERO).conColor(new Color()).....
+}
+
+FarbicaDeUniformeInstitutoJhonson extendss FarbicaDeUniforme {
+  fabricarParteSuperior()
+    return new PrendaBorrador(Camisa).deMaterial(Material.PIQUE).conColor(new Color()).....
+  
+  fabricarParteInferior()
+    return new PrendaBorrador(Pantalon).deMaterial(Material.ACETATO).conColor(new Color()).....
+    
+  fabricarCalzado()
+    return new PrendaBorrador(Zapatos).deMaterial(Material.CUERO).conColor(new Color()).....
+}
+```
