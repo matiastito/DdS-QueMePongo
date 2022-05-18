@@ -167,7 +167,7 @@ FabricaDeUniformeSanJuan extendss FarbicaDeUniforme {
     return new PrendaBorrador(Zapatillas).deMaterial(Material.CUERO).conColor(new Color()).....
 }
 
-FarbicaDeUniformeInstitutoJhonson extendss FarbicaDeUniforme {
+FarbicaDeUniformeInstitutoJhonson extends FarbicaDeUniforme {
   fabricarParteSuperior()
     return new PrendaBorrador(Camisa).deMaterial(Material.PIQUE).conColor(new Color()).....
   
@@ -177,4 +177,61 @@ FarbicaDeUniformeInstitutoJhonson extendss FarbicaDeUniforme {
   fabricarCalzado()
     return new PrendaBorrador(Zapatos).deMaterial(Material.CUERO).conColor(new Color()).....
 }
+```
+
+# 3era
+
+ToDO
+
+# 4ta
+
+- Como usuarie de QuéMePongo, quiero poder conocer las condiciones climáticas de Buenos Aires en un momento dado para obtener sugerencias acordes.
+- Como administradore de QuéMePongo, quiero poder configurar fácilmente diferentes servicios de obtención del clima para ajustarme a las cambiantes condiciones económicas.
+- Como stakeholder de QuéMePongo, quiero poder asegurar la calidad de mi aplicación sin incurrir en costos innecesarios. 
+
+```java
+interface Meteorologo
+
+//Para mayor facilidad, usamos numeros enteros para la temperatura
+  abstract temperaturaHoy()
+
+class MeteorologoBuenosAiresAccuWheaterGratuito extends Meteorologo
+  private AccuWeatherAPI accuWeatherAPI
+  private fechaUltimaLlamada
+  private llamadasDiarias
+  private temperatura
+  
+  MeteorologoAccuWheater(AccuWeatherAPI accuWeatherAPI)
+    super("Buenos Aires, Argentina")
+    this.accuWeatherAPI = accuWeatherAPI
+ 
+  Integer temperaturaHoy(String nombreCiudad)
+    contadorDeConsultas.contarConsulta()
+    
+    condicionesClimaticas = accuWeatherAPI.getWeather(“Buenos Aires, Argentina”);
+    condicionesClimaticas.get(0).get("Temperature").get("Value)
+```
+
+- Como usuarie de QuéMePongo, quiero que al generar una sugerencia las prendas sean acordes a la temperatura actual sabiendo que para cada prenda habrá una temperatura hasta la cual es adecuada. (Ej.: “Remera de mangas largas” no es apta a más de 20°C)
+- Como usuarie de QuéMePongo, quiero poder recibir sugerencias de atuendos que tengan una prenda para cada categoría, aunque a futuro podrán tener más (Ej.: Una remera, un pantalón, zapatos y un gorro).
+
+```java
+class Prenda {
+  ...
+  Integer temperaturaLimite  
+
+  ...
+}
+```
+
+- 
+```java
+
+class ConsejeroDeRopa
+  
+  Meteorologo meteorologo
+  
+  
+  
+
 ```
