@@ -234,9 +234,8 @@ class Prenda {
 
 - 
 ```java
-
 class ConsejeroDeRopa
-  
   Meteorologo meteorologo
-
+  
+class Sugerencia
 ```
