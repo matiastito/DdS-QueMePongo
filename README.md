@@ -200,7 +200,7 @@ class ConsultorMeteorologoBuenosAiresAccuWheaterGratuito implements ConsultorMet
   private temperaturaUltima
   private ciudad
   
-  MeteorologoAccuWheater(AccuWeatherAPI accuWeatherAPI)
+  ConsultorMeteorologoBuenosAiresAccuWheaterGratuito(AccuWeatherAPI accuWeatherAPI)
     ciudad = "Buenos Aires, Argentina"
     llamadasDiariasRestante = 10
     this.accuWeatherAPI = accuWeatherAPI
