@@ -190,26 +190,34 @@ ToDO
 - Como stakeholder de QuéMePongo, quiero poder asegurar la calidad de mi aplicación sin incurrir en costos innecesarios. 
 
 ```java
-interface Meteorologo
+interface ConsultorMeteorologo
+  //Para mayor facilidad, usamos numeros enteros para la temperatura
+  Integer temperaturaHoy()
 
-//Para mayor facilidad, usamos numeros enteros para la temperatura
-  abstract temperaturaHoy()
-
-class MeteorologoBuenosAiresAccuWheaterGratuito extends Meteorologo
-  private AccuWeatherAPI accuWeatherAPI
-  private fechaUltimaLlamada
-  private llamadasDiarias
-  private temperatura
+class ConsultorMeteorologoBuenosAiresAccuWheaterGratuito implements ConsultorMeteorologo
+  private llamadasDiariasRestante
+  private fechaUltimaConsulta
+  private temperaturaUltima
+  private ciudad
   
   MeteorologoAccuWheater(AccuWeatherAPI accuWeatherAPI)
-    super("Buenos Aires, Argentina")
+    ciudad = "Buenos Aires, Argentina"
+    llamadasDiariasRestante = 10
     this.accuWeatherAPI = accuWeatherAPI
  
-  Integer temperaturaHoy(String nombreCiudad)
-    contadorDeConsultas.contarConsulta()
-    
-    condicionesClimaticas = accuWeatherAPI.getWeather(“Buenos Aires, Argentina”);
-    condicionesClimaticas.get(0).get("Temperature").get("Value)
+  Integer temperaturaHoy()
+    if now.equals(fechaUltimaConsulta)
+      if llamadasDiariasRestantes > 0
+        condicionesClimaticas = accuWeatherAPI.getWeather(“Buenos Aires, Argentina”);
+        llamadasDiariasRestantes--
+        return condicionesClimaticas.get(0).get("Temperature").get("Value)
+      else
+        return temperaturaUltima
+    else
+      llamadasDiariasRestante = 10
+      condicionesClimaticas = accuWeatherAPI.getWeather(“Buenos Aires, Argentina”);
+      llamadasDiariasRestantes--
+      return condicionesClimaticas.get(0).get("Temperature").get("Value)
 ```
 
 - Como usuarie de QuéMePongo, quiero que al generar una sugerencia las prendas sean acordes a la temperatura actual sabiendo que para cada prenda habrá una temperatura hasta la cual es adecuada. (Ej.: “Remera de mangas largas” no es apta a más de 20°C)
@@ -230,8 +238,5 @@ class Prenda {
 class ConsejeroDeRopa
   
   Meteorologo meteorologo
-  
-  
-  
 
 ```
