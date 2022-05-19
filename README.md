@@ -223,8 +223,6 @@ class ConsultorMeteorologoBuenosAiresAccuWheaterGratuito implements ConsultorMet
 ```
 
 - Como usuarie de QuéMePongo, quiero que al generar una sugerencia las prendas sean acordes a la temperatura actual sabiendo que para cada prenda habrá una temperatura hasta la cual es adecuada. (Ej.: “Remera de mangas largas” no es apta a más de 20°C)
-- Como usuarie de QuéMePongo, quiero poder recibir sugerencias de atuendos que tengan una prenda para cada categoría, aunque a futuro podrán tener más (Ej.: Una remera, un pantalón, zapatos y un gorro).
-
 ```java
 class Prenda {
   ...
@@ -233,8 +231,7 @@ class Prenda {
   ...
 }
 ```
-
-- 
+- Como usuarie de QuéMePongo, quiero poder recibir sugerencias de atuendos que tengan una prenda para cada categoría, aunque a futuro podrán tener más (Ej.: Una remera, un pantalón, zapatos y un gorro).
 ```java
 class ConsejeroDeRopa
   Meteorologo meteorologo
