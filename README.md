@@ -56,19 +56,19 @@ class PrendaException extrends RuntimeException
 
 # 2da
 
-Como usuarie de QuéMePongo, quiero especificar qué trama tiene la tela de una prenda (lisa, rayada, con lunares, a cuadros o un estampado).
+- Como usuarie de QuéMePongo, quiero especificar qué trama tiene la tela de una prenda (lisa, rayada, con lunares, a cuadros o un estampado).
 ```java
 enum Trama{ LISA, RAYADA, LUNARES, CUADROS, ESTAMPADO }
 ```
-Como usuarie de QuéMePongo, quiero crear una prenda especificando primero de qué tipo es. [1]
+- Como usuarie de QuéMePongo, quiero crear una prenda especificando primero de qué tipo es. [1]
 
-Como usuarie de QuéMePongo, quiero crear una prenda especificando en segundo lugar los aspectos relacionados a su material (colores, material, trama, etc) para evitar elegir materiales inconsistentes con el tipo de prenda. [2]
+- Como usuarie de QuéMePongo, quiero crear una prenda especificando en segundo lugar los aspectos relacionados a su material (colores, material, trama, etc) para evitar elegir materiales inconsistentes con el tipo de prenda. [2]
 
-Como usuarie de QuéMePongo, quiero guardar un borrador de la la última prenda que empecé a cargar para continuar después. [3]
+- Como usuarie de QuéMePongo, quiero guardar un borrador de la la última prenda que empecé a cargar para continuar después. [3]
 
-Como usuarie de QuéMePongo, quiero poder no indicar ninguna trama para una tela, y que por defecto ésta sea lisa. [4]
+- Como usuarie de QuéMePongo, quiero poder no indicar ninguna trama para una tela, y que por defecto ésta sea lisa. [4]
 
-Como usuarie de QuéMePongo, quiero poder guardar una prenda solamente si esta es válida. [5]
+- Como usuarie de QuéMePongo, quiero poder guardar una prenda solamente si esta es válida. [5]
 
 ```java
 class PrendaBorrador [3]
@@ -133,12 +133,11 @@ class Pantalon implements TipoPrenda {
     return materialesPosibles.contains(material)
 }
 ```
+- Como usuario QueMePongo, quiero poder recibir sugerencias de uniformes armados. [1]
 
-Como usuario QueMePongo, quiero poder recibir sugerencias de uniformes armados. [1]
+- Como usuario QueMePongo, quiero que un uniforme siempre conste de una prenda superior, una inferior y un calzado [2]
 
-Como usuario QueMePongo, quiero que un uniforme siempre conste de una prenda superior, una inferior y un calzado [2]
-
-Como administrador de QueMePongo, quiero poder configurar diferentes uniformes para distintas instituciones [3]
+- Como administrador de QueMePongo, quiero poder configurar diferentes uniformes para distintas instituciones [3]
 (Ej: para el colegio San Juan debe ser una chomba verde de piqué, un pantalón de acetato gris y zapatillas blancas, mientras que para el Instituto Johnson siempre será una camisa blanca, pantalón de vestir negro y zapatos negros) 
 
 ```java
@@ -188,7 +187,8 @@ ToDO
 - Como usuarie de QuéMePongo, quiero poder conocer las condiciones climáticas de Buenos Aires en un momento dado para obtener sugerencias acordes.
 - Como administradore de QuéMePongo, quiero poder configurar fácilmente diferentes servicios de obtención del clima para ajustarme a las cambiantes condiciones económicas.
 - Como stakeholder de QuéMePongo, quiero poder asegurar la calidad de mi aplicación sin incurrir en costos innecesarios. 
-_Aqui creamos la clase 'ConsultorMeteorologoBuenosAiresAccuWheaterGratuito' que se encarga de consultar AccuWheater sin exceder el lìmite requerido por el stakeholder_
+
+> Aqui creamos la clase 'ConsultorMeteorologoBuenosAiresAccuWheaterGratuito' que se encarga de consultar AccuWheater sin exceder el lìmite requerido por el stakeholder
 ```java
 interface ConsultorMeteorologo
   //Para mayor facilidad, usamos numeros enteros para la temperatura
@@ -225,7 +225,7 @@ class ConsultorMeteorologoBuenosAiresAccuWheaterGratuito implements ConsultorMet
 - Como usuarie de QuéMePongo, quiero que al generar una sugerencia las prendas sean acordes a la temperatura actual sabiendo que para cada prenda habrá una temperatura hasta la cual es adecuada. (Ej.: “Remera de mangas largas” no es apta a más de 20°C).
 - Como usuarie de QuéMePongo, quiero poder recibir sugerencias de atuendos que tengan una prenda para cada categoría, aunque a futuro podrán tener más (Ej.: Una remera, un pantalón, zapatos y un gorro).
 
-_Para resolver estos requerimientos, agregamos en la clase prenda el atributo temperatura lìmite_
+> Para resolver estos requerimientos, agregamos en la clase prenda el atributo temperatura lìmite_
 ```java
 class Prenda {
   ...
@@ -234,7 +234,7 @@ class Prenda {
   ...
 }
 ```
-_y creamos la clase Sugerencia, que por ahora es un dataObject, quizá mas adelante tenga algún comportamiento_
+> y creamos la clase Sugerencia, que por ahora es un dataObject, quizá mas adelante tenga algún comportamiento_
 ```java
 class Sugerencia
   parteSuperior
@@ -242,7 +242,8 @@ class Sugerencia
   calzado
   accesorio
 ```
-_y finamiente tenemos un consejeroDeRopaPorTemperatura, quien se encarga de generar la suguerencia, consultado la temepratura de hoy y haciendo uso de un 'buscadorDeVestidor' quien filtrarà el vestidor con el criterio necesario_
+
+> y finamiente tenemos un consejeroDeRopaPorTemperatura, quien se encarga de generar la suguerencia, consultado la temepratura de hoy y haciendo uso de un 'buscadorDeVestidor' quien filtrarà el vestidor con el criterio necesario
 ```java
 class ConsejeroDeRopaPorTemperatura
   Meteorologo meteorologo
