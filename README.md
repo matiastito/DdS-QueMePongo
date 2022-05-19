@@ -208,16 +208,18 @@ class ConsultorMeteorologoBuenosAiresAccuWheaterGratuito implements ConsultorMet
   Integer temperaturaHoy()
     if now.equals(fechaUltimaConsulta)
       if llamadasDiariasRestantes > 0
-        condicionesClimaticas = accuWeatherAPI.getWeather(“Buenos Aires, Argentina”);
         llamadasDiariasRestantes--
-        return condicionesClimaticas.get(0).get("Temperature").get("Value)
+        return consultarTemperatura()
       else
         return temperaturaUltima
     else
       llamadasDiariasRestante = 10
-      condicionesClimaticas = accuWeatherAPI.getWeather(“Buenos Aires, Argentina”);
       llamadasDiariasRestantes--
-      return condicionesClimaticas.get(0).get("Temperature").get("Value)
+      return consultarTemperatura()
+   
+   Integer consultarTemperatura()
+        condicionesClimaticas = accuWeatherAPI.getWeather(“Buenos Aires, Argentina”);
+        return condicionesClimaticas.get(0).get("Temperature").get("Value)
 ```
 
 - Como usuarie de QuéMePongo, quiero que al generar una sugerencia las prendas sean acordes a la temperatura actual sabiendo que para cada prenda habrá una temperatura hasta la cual es adecuada. (Ej.: “Remera de mangas largas” no es apta a más de 20°C)
