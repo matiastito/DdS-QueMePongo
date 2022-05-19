@@ -222,8 +222,10 @@ class ConsultorMeteorologoBuenosAiresAccuWheaterGratuito implements ConsultorMet
         return condicionesClimaticas.get(0).get("Temperature").get("Value)
 ```
 
-- Como usuarie de QuéMePongo, quiero que al generar una sugerencia las prendas sean acordes a la temperatura actual sabiendo que para cada prenda habrá una temperatura hasta la cual es adecuada. (Ej.: “Remera de mangas largas” no es apta a más de 20°C)
+- Como usuarie de QuéMePongo, quiero que al generar una sugerencia las prendas sean acordes a la temperatura actual sabiendo que para cada prenda habrá una temperatura hasta la cual es adecuada. (Ej.: “Remera de mangas largas” no es apta a más de 20°C).
 - Como usuarie de QuéMePongo, quiero poder recibir sugerencias de atuendos que tengan una prenda para cada categoría, aunque a futuro podrán tener más (Ej.: Una remera, un pantalón, zapatos y un gorro).
+
+_Para resolver estos requerimientos, agregamos en la clase prenda el atributo temperatura lìmite_
 ```java
 class Prenda {
   ...
@@ -232,9 +234,30 @@ class Prenda {
   ...
 }
 ```
+_y creamos la clase Sugerencia, que por ahora es un dataObject, quizá mas adelante tenga algún comportamiento_
 ```java
-class ConsejeroDeRopa
-  Meteorologo meteorologo
-  
 class Sugerencia
+  parteSuperior
+  parteInferior
+  calzado
+  accesorio
+```
+_y finamiente tenemos un consejeroDeRopaPorTemperatura, quien se encarga de generar la suguerencia, consultado la temepratura de hoy y haciendo uso de un 'buscadorDeVestidor' quien filtrarà el vestidor con el criterio necesario_
+```java
+class ConsejeroDeRopaPorTemperatura
+  Meteorologo meteorologo
+  BuscadorDeVestidor buscadorDeVestidor
+  
+  ConsejeroDeRopa(meteorologo, buscadorDeVestidor)
+    meteorologo
+    buscadorDeVestidor
+    
+  obtenerSugerencia()
+    temperaturaHoy = meteorologo.temperaturaHoy()
+    new Sugeurencia(
+      buscadorDeVestidor.buscarPorCategoriaYTemperatura(SUPERIOR, temperaturaHoy),
+      buscadorDeVestidor.buscarPorCategoriaYTemperatura(INFERIOR, temperaturaHoy),
+      buscadorDeVestidor.buscarPorCategoriaYTemperatura(CALZADO, temperaturaHoy),
+      buscadorDeVestidor.buscarPorCategoriaYTemperatura(ACCESORIO, temperaturaHoy
+    )
 ```
