@@ -188,7 +188,7 @@ ToDO
 - Como usuarie de QuéMePongo, quiero poder conocer las condiciones climáticas de Buenos Aires en un momento dado para obtener sugerencias acordes.
 - Como administradore de QuéMePongo, quiero poder configurar fácilmente diferentes servicios de obtención del clima para ajustarme a las cambiantes condiciones económicas.
 - Como stakeholder de QuéMePongo, quiero poder asegurar la calidad de mi aplicación sin incurrir en costos innecesarios. 
-
+_Aqui creamos la clase 'ConsultorMeteorologoBuenosAiresAccuWheaterGratuito' que se encarga de consultar AccuWheater sin exceder el lìmite requerido por el stakeholder_
 ```java
 interface ConsultorMeteorologo
   //Para mayor facilidad, usamos numeros enteros para la temperatura
@@ -258,6 +258,6 @@ class ConsejeroDeRopaPorTemperatura
       buscadorDeVestidor.buscarPorCategoriaYTemperatura(SUPERIOR, temperaturaHoy),
       buscadorDeVestidor.buscarPorCategoriaYTemperatura(INFERIOR, temperaturaHoy),
       buscadorDeVestidor.buscarPorCategoriaYTemperatura(CALZADO, temperaturaHoy),
-      buscadorDeVestidor.buscarPorCategoriaYTemperatura(ACCESORIO, temperaturaHoy
+      buscadorDeVestidor.buscarPorCategoriaYTemperatura(ACCESORIO, temperaturaHoy)
     )
 ```
