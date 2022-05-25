@@ -294,5 +294,5 @@ class GuardarropaCompartido {
 	private Usuario
 }
 
-Enum CriterioRopa { RopaDeViaje,  RopaDeEntrecasa }
+enum CriterioRopa { RopaDeViaje,  RopaDeEntrecasa }
 ```
