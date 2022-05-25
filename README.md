@@ -262,3 +262,30 @@ class ConsejeroDeRopaPorTemperatura
       buscadorDeVestidor.buscarPorCategoriaYTemperatura(ACCESORIO, temperaturaHoy)
     )
 ```
+
+
+# 4ta
+
+```
+guardarropa
+	criterioRopa
+	agregarPrenda(usuario, prenda)
+	quitarPrenda(usuario, prenda)
+	verSugerencias()
+	noAceptarNada()
+
+usuario
+	nombre
+	
+sugurencia
+	acepar()
+	rechazar()
+
+guardarropaCompartido
+	guardarropa
+	usuario
+
+criterioRopa
+	ropa de viaje
+	ropa de entrecasa
+```
