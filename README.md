@@ -269,11 +269,11 @@ class ConsejeroDeRopaPorTemperatura
 ```java
 class Guardarropa {
 	private CriterioRopa criterioRopa
-	private List<Suguerencia> sugurencias
+	private List<Sugerencia> sugerencias
 	
 	agregarPrenda(usuario, prenda): void
 	quitarPrenda(usuario, prenda): void
-	verSugerencias(): List<Suguerencia>
+	verSugerencias(): List<Sugerencia>
 	noAceptarNada(): void
 }
 
@@ -281,7 +281,7 @@ class Usuario {
 	String nombre
 }
 	
-class Suguerencia {
+class Sugerencia {
 	Prenda prenda
 	Usuario usuario
 	
