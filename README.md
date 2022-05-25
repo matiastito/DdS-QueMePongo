@@ -266,26 +266,29 @@ class ConsejeroDeRopaPorTemperatura
 
 # 4ta
 
-```
-guardarropa
-	criterioRopa
-	agregarPrenda(usuario, prenda)
-	quitarPrenda(usuario, prenda)
-	verSugerencias()
-	noAceptarNada()
-
-usuario
-	nombre
+```java
+class Guardarropa
+	private CriterioRopa criterioRopa
+	private List<Suguerencia> sugurencias
 	
-sugurencia
-	acepar()
-	rechazar()
+	agregarPrenda(usuario, prenda): void
+	quitarPrenda(usuario, prenda): void
+	verSugerencias(): List<Suguerencia>
+	noAceptarNada(): void
 
-guardarropaCompartido
-	guardarropa
-	usuario
+class Usuario
+	String nombre
+	
+class Suguerencia
+	Prenda prenda
+	Usuario usuario
+	
+	acepar(): void
+	rechazar(): void
 
-criterioRopa
-	ropa de viaje
-	ropa de entrecasa
+class GuardarropaCompartido
+	private Guardarropa guardarropa
+	private Usuario
+
+Enum CriterioRopa { RopaDeViaje,  RopaDeEntrecasa }
 ```
