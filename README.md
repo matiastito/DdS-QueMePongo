@@ -267,7 +267,7 @@ class ConsejeroDeRopaPorTemperatura
 # 4ta
 
 ```java
-class Guardarropa
+class Guardarropa {
 	private CriterioRopa criterioRopa
 	private List<Suguerencia> sugurencias
 	
@@ -275,20 +275,24 @@ class Guardarropa
 	quitarPrenda(usuario, prenda): void
 	verSugerencias(): List<Suguerencia>
 	noAceptarNada(): void
+}
 
-class Usuario
+class Usuario {
 	String nombre
+}
 	
-class Suguerencia
+class Suguerencia {
 	Prenda prenda
 	Usuario usuario
 	
 	acepar(): void
 	rechazar(): void
+}
 
-class GuardarropaCompartido
+class GuardarropaCompartido {
 	private Guardarropa guardarropa
 	private Usuario
+}
 
 Enum CriterioRopa { RopaDeViaje,  RopaDeEntrecasa }
 ```
