@@ -264,7 +264,7 @@ class ConsejeroDeRopaPorTemperatura
 ```
 
 
-# 4ta
+# 5ta
 
 ```java
 class Guardarropa {
