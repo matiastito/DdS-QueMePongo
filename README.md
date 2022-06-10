@@ -279,6 +279,7 @@ class Guardarropa {
 
 class Usuario {
 	String nombre
+	List<Guardarropa>
 }
 	
 class Sugerencia {
