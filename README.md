@@ -271,8 +271,8 @@ class Guardarropa {
 	private CriterioRopa criterioRopa
 	private List<Sugerencia> sugerencias
 	
-	agregarPrenda(usuario, prenda): void
-	quitarPrenda(usuario, prenda): void
+	agregarPrenda(usuario, prenda): void //Acá adentro creamos la Suguerecnia y la agregamos a la lista
+	quitarPrenda(usuario, prenda): void //Acá adentro creamos la Suguerecnia y la agregamos a la lista
 	verSugerencias(): List<Sugerencia>
 	noAceptarNada(): void
 }
