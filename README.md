@@ -324,7 +324,7 @@ class CalculadorDeSuguerencias {
 
 Alerta = { Lluvia, Granizo }
 
-class Aletador {
+class RegistroDeAlertas {
 	ServicioMetorologico servicioMetorologico
 	List<Alerta> alertarMeteorologias
 	
