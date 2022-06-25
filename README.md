@@ -297,3 +297,41 @@ class GuardarropaCompartido {
 
 enum CriterioRopa { RopaDeViaje,  RopaDeEntrecasa }
 ```
+
+# 6ta
+
+```java
+class Suguerencia {
+	List<Prenda> prendas
+}
+
+class Usuario {
+	Suguerencia suguerenciaDiaria
+	
+}
+
+class CalculadorDeSuguerencias {
+	List<Usuario> usuarios
+	
+	sugerirAUsarios(alerta) {
+		foraech usuario:usuarioas
+			suguerencia determinarSuguerencia(Alerta)
+			usuario.agregarSuguerencia(suguerencia)
+	}
+	
+	determinarSuguerencia(Alerta)
+}
+
+class Aletador {
+	ServicioMetorologico
+	List<Alerta> alertarMeteorologias
+	
+	actualizarAlertarMeteorologias()
+	
+	dameUltimasAlterasMeteorilogias()
+}
+
+class ActulizadorDeAlertas {
+	Alertador alertador
+	
+}
