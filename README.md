@@ -307,6 +307,15 @@ class Suguerencia {
 
 class Usuario {
 	Suguerencia suguerenciaDiaria
+	List<AccionConfidurable> accionesConfigurables
+	
+	agregarAcccion(AccionConfidurable)
+	
+	removerAcciones(AccionConfidurable)
+	
+	relizarAccionesSobreAlertas(alertas) {
+		accionesConfigurables.forEach(accion -> accioANteNuevaAlerta(this, alertas))
+	}
 	
 }
 
@@ -340,6 +349,30 @@ class RegistroDeAlertas {
 	
 }
 
+interface AccionCOndigurable {
+	void accioANteNuevaAlerta(Usuario)
+}
+
+class AccionDeMandarMail {
+	Correo correo
+	
+	accioANteNuevaAlerta(Usuario) {
+		corremo.mandarMail(usuario, "Hay alertas")
+	}
+}
+
+
+class AccionDeNotificar {
+	Correo correo
+	
+	accioANteNuevaAlerta(Usuario, alertas) {
+		if alertas.contains(GRNIAZO)
+			notificador.notificar("NO salgas en auto!")
+		....
+		....
+	}
+}
+
 interface Correo {
 	enviarCorreo(usuario, cuerpo)
 }
@@ -347,3 +380,4 @@ interface Correo {
 interface Notificador {
 	notificar(msj)
 }
+```
