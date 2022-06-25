@@ -322,13 +322,15 @@ class CalculadorDeSuguerencias {
 	determinarSuguerencia(Alerta)
 }
 
+Alerta = { Lluvia, Granizo }
+
 class Aletador {
-	ServicioMetorologico
+	ServicioMetorologico servicioMetorologico
 	List<Alerta> alertarMeteorologias
 	
-	actualizarAlertarMeteorologias()
-	
-	dameUltimasAlterasMeteorilogias()
+	dameUltimasAlterasMeteorilogias() {
+		alertarMetorologias servicioMetorologia.dameUltimasAlertas() 
+	}
 }
 
 class ActulizadorDeAlertas {
