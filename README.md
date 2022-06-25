@@ -333,11 +333,17 @@ class RegistroDeAlertas {
 	}
 	
 	actulizarAlertas() {
-		alertarMetorologias = servicioMetorologia.dameUltimasAlertas() 
+		alertarMetorologias = servicioMetorologia.dameUltimasAlertas()
+		aletar(ultimasAlertarMeteorologias)
 	}
+	
+	
 }
 
-class ActulizadorDeAlertas {
-	Alertador alertador
-	
+interface Correo {
+	enviarCorreo(usuario, cuerpo)
+}
+
+interface Notificador {
+	notificar(msj)
 }
